@@ -23,5 +23,20 @@ function mostrarMenu(){
     menuHamburguer.classList.toggle("ativo");
 }
 
+function pegarNome(){
+    let nome = input.value;
+    h2.innerHTML = `Seja bem vind@ ${nome}`;
+    input.value = "";
+}
 
+//funcao que recebe o próprio evento de pressionar teclas e verifica se a tecla do evento é o Enter, se for enter ele chama a funcao de pegar nome
+let enterclick = (event) =>{
+    if(event.key === 'Enter'){
+        pegarNome();
+    }
+}
+
+menuHamburguer.onclick = mostrarMenu;
+botao.onclick = pegarNome;
+input.onkeydown = enterclick; // coloquei o evento de apertar uma tecla no input que executa a funcao de enterclick
 
